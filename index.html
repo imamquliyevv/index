@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Sınağı - Yevv Testi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d1fae5 !important;
+      border-color: #10b981 !important;
+    }
+    .incorrect {
+      background-color: #fee2e2 !important;
+      border-color: #ef4444 !important;
+    }
+    .progress-bar {
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Başlıq -->
+    <header class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-indigo-800 mb-2">📝 Yevv Test Sınağı</h1>
+      <p class="text-gray-600">Öz biliklərinizi yoxlayın və səviyyənizi öyrənin!</p>
+    </header>
+
+    <!-- Test Kontenti -->
+    <div id="test-container" class="bg-white rounded-lg shadow-xl p-6 mb-6">
+      <!-- Proqress Bar -->
+      <div class="mb-6">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-medium text-gray-600" id="progress-text">Sual 1/4</span>
+          <span class="text-sm font-medium text-gray-600" id="timer">00:00</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div class="progress-bar bg-indigo-600 h-2 rounded-full" style="width: 0%" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Suallar -->
+      <form id="test-form">
+        <!-- Sual 1 -->
+        <div class="question mb-8" id="question-1">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">1. HTML-də səhifə başlığı hansı tag ilə təyin olunur?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q1" value="A" class="mr-3"> &lt;header&gt;
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q1" value="B" class="mr-3"> &lt;title&gt;
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q1" value="C" class="mr-3"> &lt;head&gt;
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q1" value="D" class="mr-3"> &lt;h1&gt;
+            </label>
+          </div>
+        </div>
+
+        <!-- Sual 2 -->
+        <div class="question mb-8" id="question-2">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">2. JavaScript-də dəyişən elan etmək üçün hansı açar sözdən istifadə olunmur?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q2" value="A" class="mr-3"> var
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q2" value="B" class="mr-3"> let
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q2" value="C" class="mr-3"> const
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q2" value="D" class="mr-3"> variable
+            </label>
+          </div>
+        </div>
+
+        <!-- Sual 3 -->
+        <div class="question mb-8" id="question-3">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">3. CSS-də elementləri üfüqi mərkəzləşdirmək üçün ən yaxşı üsul hansıdır?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q3" value="A" class="mr-3"> text-align: center
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q3" value="B" class="mr-3"> margin: 0 auto
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q3" value="C" class="mr-3"> align: center
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q3" value="D" class="mr-3"> center: true
+            </label>
+          </div>
+        </div>
+
+        <!-- Sual 4 -->
+        <div class="question mb-8" id="question-4">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">4. Python-da siyahı yaratmaq üçün hansı mötərizələrdən istifadə olunur?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q4" value="A" class="mr-3"> {}
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q4" value="B" class="mr-3"> []
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q4" value="C" class="mr-3"> ()
+            </label>
+            <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer">
+              <input type="radio" name="q4" value="D" class="mr-3"> &lt;&gt;
+            </label>
+          </div>
+        </div>
+
+        <!-- Bitir düyməsi -->
+        <button type="button" onclick="finishTest()" class="w-full py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">Bitdi</button>
+      </form>
+    </div>
+
+    <!-- Nəticə -->
+    <div id="result" class="text-center text-xl font-bold text-gray-800"></div>
+  </div>
+
+  <script>
+    // Düzgün cavablar
+    const correctAnswers = { q1: "B", q2: "D", q3: "B", q4: "B" };
+
+    // Proqress bar və timer
+    let startTime = Date.now();
+    setInterval(() => {
+      let elapsed = Math.floor((Date.now() - startTime) / 1000);
+      let min = String(Math.floor(elapsed / 60)).padStart(2, "0");
+      let sec = String(elapsed % 60).padStart(2, "0");
+      document.getElementById("timer").innerText = `${min}:${sec}`;
+    }, 1000);
+
+    function finishTest() {
+      let form = document.getElementById("test-form");
+      let score = 0, total = Object.keys(correctAnswers).length;
+      let questions = form.querySelectorAll(".question");
+
+      questions.forEach((q, index) => {
+        let qname = "q" + (index + 1);
+        let selected = form.querySelector(`input[name=${qname}]:checked`);
+        let labels = q.querySelectorAll("label");
+
+        labels.forEach(label => label.classList.remove("correct", "incorrect"));
+
+        if (selected) {
+          if (selected.value === correctAnswers[qname]) {
+            score++;
+            selected.parentElement.classList.add("correct");
+          } else {
+            selected.parentElement.classList.add("incorrect");
+            q.querySelector(`input[value=${correctAnswers[qname]}]`).parentElement.classList.add("correct");
+          }
+        } else {
+          q.querySelector(`input[value=${correctAnswers[qname]}]`).parentElement.classList.add("correct");
+        }
+      });
+
+      document.getElementById("result").innerHTML =
+        `✔️ ${score} düzgün | ❌ ${total - score} səhv (cəmi ${total} sual)`;
+    }
+  </script>
+</body>
+</html>

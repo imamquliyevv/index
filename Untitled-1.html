@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liman Tayfa Restoran Menyusu</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #faf9f7;
+}
+
+/* Başlıq */
+header {
+  text-align: center;
+  padding: 60px 20px 30px 20px;
+  background: linear-gradient(135deg, #fff4e6, #ffe0b3);
+}
+header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 70px;
+  color: #f8c819;
+  margin: 0;
+}
+header h1 span {
+  font-size: 32px;
+}
+header p {
+  font-family: 'Pacifico', cursive;
+  font-size: 22px;
+  margin-top: 5px;
+  color: #ff6347;
+}
+
+/* Bölmələr */
+.section {
+  padding: 120px 20px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  opacity: 1;
+  animation: fadeInUp 1s ease-out;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(3px);
+}
+
+.section h2 {
+  position: relative;
+  font-size: 42px;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  margin-bottom: 60px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  animation: glow 2s infinite alternate;
+}
+
+/* Glow effekti */
+@keyframes glow {
+  from { text-shadow: 0 0 5px #fff, 0 0 10px #ffa07a; }
+  to { text-shadow: 0 0 15px #fff, 0 0 25px #ff6347; }
+}
+
+/* FON ŞƏKİLLƏR */
+#salads { background-image: url('https://images.unsplash.com/photo-1600335895229-6e75511892c8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2FsYWR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1000'); }
+#burgers { background-image: url('https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687'); }
+#pizzas { background-image: url('https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGl6emFzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1000'); }
+#sushi { background-image: url('https://media.istockphoto.com/id/1555947107/photo/set-of-sushi-and-maki.jpg?s=612x612&w=0&k=20&c=Tdt7UyRfO-JERN_SXIdf-l8uhD_dVDyH-xzXYh2Q5-Y='); }
+#drinks { background-image: url('https://plus.unsplash.com/premium_photo-1684952849219-5a0d76012ed2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1032'); }
+
+/* Kartların düzülüşü */
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.row {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* KART DİZAYNI */
+.card {
+  position: relative;
+  width: 270px;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #f5f5f5c9;
+  color: #000000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+/* yemek skillerinin olcusu */
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+}
+.card .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.card .title span:last-child {
+  color: #197509;
+}
+.card .info {
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  background: rgba(255, 255, 255, 0.9);
+  display: none;
+}
+.card:hover .info {
+  display: block;
+}
+
+/* Animasiya */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px;
+  font-family: 'Pacifico', cursive;
+  font-size: 22px;
+  color: #ff7f50;
+  background: linear-gradient(90deg, #fff4e6, #ffe0b3);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Liman Tayfa 🍋</h1>
+  <p>chef Yevv</p>
+</header>
+
+<section id="salads" class="section">
+  <h2>Saladlar</h2>
+  <div class="menu-items">
+    <div class="row">
+      <div class="card">
+        <img src="https://evdar.az/wp-content/uploads/Dadli-v%C9%99-Yungul-Krevetkali-Sezar-Salati2.jpg" alt="Sezar Salatı">
+        <div class="title"><span>Sezar Salatı</span><span>8 AZN</span></div>
+        <div class="info">Toyuq, kahı, parmesan, sous</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FsYWR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1000" alt="yunan Salatı">
+        <div class="title"><span>Yunan Salatı</span><span>7 AZN</span></div>
+        <div class="info">Pomidor, xiyar, zeytun, pendir</div>
+      </div>
+      <div class="card">
+        <img src="https://media.istockphoto.com/id/1307003992/photo/salad-nicoise.jpg?s=612x612&w=0&k=20&c=xTzOSo7ysDW2eMgFC1dKIa9WZFW6NRwN9vm8jGSGaI4=" alt="Tuno Salatı">
+        <div class="title"><span>Tuno Salatı</span><span>9 AZN</span></div>
+        <div class="info">Tuna balığı, qarğıdalı, yumurta</div>
+      </div>
+      <div class="card">
+        <img src="https://i.lezzet.com.tr/images-xxlarge-recipe/rus-salatasi-8024cb37-9299-4027-84e0-c216785ee68a.jpg" alt="Rus Salatı">
+        <div class="title"><span>Rus Salatı</span><span>9 AZN</span></div>
+        <div class="info"> Kartof, kök, noxud, turşu xiyar, mayonez</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1588008099417-78d7676e4d9f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvYmFuJTIwc2FsYWR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1000" alt="Çoban Salatı">
+        <div class="title"><span>Çoban Salatı</span><span>9 AZN</span></div>
+        <div class="info">Pomidor, xiyar, soğan, limon suyu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="burgers" class="section">
+  <h2>Burgerlər</h2>
+  <div class="menu-items">
+    <div class="row">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Classic Burger">
+        <div class="title"><span>Classic Burger</span><span>10 AZN</span></div>
+        <div class="info">Dana əti, pendir, kahı, sous</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1734988353291-9ac67fa5997b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687" alt="Double Cheese">
+        <div class="title"><span>Double Cheese</span><span>12 AZN</span></div>
+        <div class="info">İki qat ət, iki qat pendir</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1703778507340-7b2ce4a7590f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJicSUyMGJ1cmdlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=1000" alt="BBQ Burger">
+        <div class="title"><span>BBQ Burger</span><span>11 AZN</span></div>
+        <div class="info">Qril sousu, karamelizə soğan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pizzas" class="section">
+  <h2>Pizzalar</h2>
+  <div class="menu-items">
+    <div class="row">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1664309641932-0e03e0771b97?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1hcmdhcml0YSUyMHBpenphfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1000" alt="Marqarita">
+        <div class="title"><span>Marqarita</span><span>9 AZN</span></div>
+        <div class="info">Pomidor sousu, pendir, reyhan</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1670757781705-9b6cb1ad0ca6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHBlcHBlcm9uaSUyMCUyMHBpenphfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1000" alt="Pepperoni">
+        <div class="title"><span>Pepperoni</span><span>11 AZN</span></div>
+        <div class="info">Sucuk, pendir, sous</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1635832801146-102d3bb7f88e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHZlZ2F0YXJpYW4lMjAlMjBwaXp6YXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=1000" alt="Vegetarian">
+        <div class="title"><span>Vegetarian</span><span>10 AZN</span></div>
+        <div class="info">Göbələk, bol tərəvəz</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sushi" class="section">
+  <h2>Susilər 🍣</h2>
+  <div class="menu-items">
+    <div class="row">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1598831554521-242ce64c41a1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FsaWZvcm5pYSUyMHN1c2hpfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1000" alt="California Roll">
+        <div class="title"><span>California Roll</span><span>13 AZN</span></div>
+        <div class="info">Krab, avokado, xiyar</div>
+      </div>
+      <div class="card">
+        <img src="https://plus.unsplash.com/premium_photo-1667545168921-34f756495d7b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1173" alt="Salmon Roll">
+        <div class="title"><span>Salmon Roll</span><span>15 AZN</span></div>
+        <div class="info">Somon, pendir, yosun</div>
+      </div>
+      <div class="card">
+        <img src="https://plus.unsplash.com/premium_photo-1736798695909-48dc02f6d6b6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHVuYSUyMHJvbGwlMjBzdXNoaXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=1000" alt="Tuna Roll">
+        <div class="title"><span>Tuna Roll</span><span>14 AZN</span></div>
+        <div class="info">Tuna, avokado, düyü</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="drinks" class="section">
+  <h2>İçkilər</h2>
+  <div class="menu-items">
+    <div class="row">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87" alt="Limonad">
+        <div class="title"><span>Limonad</span><span>5 AZN</span></div>
+        <div class="info">Təbii limon, nanə, buz</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb" alt="Kofe">
+        <div class="title"><span>Kofe</span><span>4 AZN</span></div>
+        <div class="info">Espresso, süd, şəkər tozu</div>
+      </div>
+      <div class="card">
+        <img src="https://plus.unsplash.com/premium_photo-1675949335489-f778abf84197?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687" alt="Qazlı içki">
+        <div class="title"><span>Qazlı içki</span><span>3 AZN</span></div>
+        <div class="info">Soyuq, təravətli</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  Buon appetito! 🍋 
+  <p style="font-size: 2.9px; color: #f7cd5168; margin-top: 5px;">Beachhh " :3" </p>
+</footer>
+
+
+
+
+</body>
+</html>
